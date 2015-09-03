@@ -1,6 +1,6 @@
 {
   "name": "lacona-phrase-string",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Lacona Phrase for strings (just a wrapper for <freetext /> that can be extended",
   "main": "lib/index.js",
   "scripts": {
