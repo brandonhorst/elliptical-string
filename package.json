@@ -1,40 +1,41 @@
 {
-  "name": "lacona-phrase-string",
-  "version": "0.1.0",
-  "description": "Lacona Phrase for strings (just a wrapper for <freetext /> that can be extended",
-  "main": "lib/index.js",
-  "scripts": {
-    "pretest": "babel test --out-dir tmp",
-    "test": "mocha tmp",
-    "build": "babel src --out-dir lib",
-    "validate": "npm run build && npm test",
-    "prepublish": "npm run build",
-    "clean": "rimraf lib tmp"
+  "author": {
+    "name": "@brandonhorst"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/brandonhorst/lacona-phrase-application.git"
-  },
-  "keywords": [
-    "lacona",
-    "application",
-    "app"
-  ],
-  "author": "@brandonhorst",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/brandonhorst/lacona-phrase-application/issues"
   },
-  "homepage": "https://github.com/brandonhorst/lacona-phrase-application",
-  "devDependencies": {
-    "babel": "^5.1.10",
-    "chai": "^2.2.0",
-    "lacona": "^0.26.0",
-    "mocha": "^2.2.4",
-    "rimraf": "^2.3.2"
-  },
   "dependencies": {
-    "lacona-phrase": "^0.7.0",
-    "lodash": "^3.7.0"
-  }
+    "lacona-phrase": "^0.7.0"
+  },
+  "description": "Lacona Phrase for strings (just a wrapper for <freetext /> that can be extended",
+  "devDependencies": {
+    "babel": "^5.8.29",
+    "chai": "^3.4.0",
+    "lacona": "^0.29.0",
+    "mocha": "^2.3.3",
+    "rimraf": "^2.4.3"
+  },
+  "homepage": "https://github.com/brandonhorst/lacona-phrase-application",
+  "keywords": [
+    "app",
+    "application",
+    "lacona"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "name": "lacona-phrase-string",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonhorst/lacona-phrase-application.git"
+  },
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "clean": "rimraf lib tmp",
+    "prepublish": "npm run build",
+    "pretest": "babel test --out-dir tmp",
+    "test": "mocha tmp",
+    "validate": "npm run build && npm test"
+  },
+  "version": "0.1.0"
 }
