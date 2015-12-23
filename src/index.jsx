@@ -1,7 +1,12 @@
 /** @jsx createElement */
 import {createElement, Phrase} from 'lacona-phrase'
 
-export default class StringPhrase extends Phrase {
+export class String extends Phrase {
+  static defaultProps = {
+    argument: 'string',
+    trimmed: false
+  }
+
   filter (input) {
     if (this.props.trimmed && (/^\s/.test(input) || /\s$/.test(input))) {
       return false
@@ -11,13 +16,9 @@ export default class StringPhrase extends Phrase {
 
   describe () {
     return (
-      <argument text={this.props.argument || 'string'}>
+      <label text={this.props.argument}>
         <freetext consumeAll={this.props.consumeAll} splitOn={this.props.splitOn} limit={this.props.limit} validate={this.filter.bind(this)} />
-      </argument>
+      </label>
     )
   }
-}
-
-StringPhrase.defaultProps = {
-  trimmed: false
 }

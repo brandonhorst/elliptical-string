@@ -6,21 +6,22 @@
     "url": "https://github.com/brandonhorst/lacona-phrase-application/issues"
   },
   "dependencies": {
-    "lacona-phrase": "^0.7.0"
+    "lacona-phrase": "^0.9.1"
   },
   "description": "Lacona Phrase for strings (just a wrapper for <freetext /> that can be extended",
   "devDependencies": {
-    "babel": "^5.8.29",
-    "chai": "^3.4.0",
-    "lacona": "^0.29.0",
-    "mocha": "^2.3.3",
-    "rimraf": "^2.4.3"
+    "babel": "^5.8.34",
+    "chai": "^3.4.1",
+    "lacona": "^0.33.1",
+    "lodash": "^3.10.1",
+    "mocha": "^2.3.4",
+    "rimraf": "^2.5.0"
   },
   "homepage": "https://github.com/brandonhorst/lacona-phrase-application",
   "keywords": [
-    "app",
-    "application",
-    "lacona"
+    "lacona",
+    "phrase",
+    "string"
   ],
   "license": "MIT",
   "main": "lib/index.js",
@@ -30,10 +31,10 @@
     "url": "git+https://github.com/brandonhorst/lacona-phrase-application.git"
   },
   "scripts": {
-    "build": "babel src --out-dir lib",
+    "build": "babel --stage 0 src --out-dir lib",
     "clean": "rimraf lib tmp",
     "prepublish": "npm run build",
-    "pretest": "babel test --out-dir tmp",
+    "pretest": "babel --stage 0 test --out-dir tmp",
     "test": "mocha tmp",
     "validate": "npm run build && npm test"
   },
