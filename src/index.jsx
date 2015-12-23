@@ -4,11 +4,11 @@ import {createElement, Phrase} from 'lacona-phrase'
 export class String extends Phrase {
   static defaultProps = {
     argument: 'string',
-    trimmed: false
+    trimmed: true
   }
 
-  filter (input) {
-    if (this.props.trimmed && (/^\s/.test(input) || /\s$/.test(input))) {
+  validate (result) {
+    if (this.props.trimmed && (/^\s/.test(result) || /\s$/.test(result))) {
       return false
     }
     return true
@@ -17,7 +17,7 @@ export class String extends Phrase {
   describe () {
     return (
       <label text={this.props.argument}>
-        <freetext consumeAll={this.props.consumeAll} splitOn={this.props.splitOn} limit={this.props.limit} validate={this.filter.bind(this)} />
+        <freetext consumeAll={this.props.consumeAll} splitOn={this.props.splitOn} limit={this.props.limit} />
       </label>
     )
   }
