@@ -27,7 +27,7 @@
   ],
   "license": "MIT",
   "main": "lib/index.js",
-  "name": "lacona-phrase-string",
+  "name": "elliptical-string",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/laconalabs/elliptical-string.git"
