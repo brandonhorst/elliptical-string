@@ -1,24 +1,29 @@
-/** @jsx createElement */
-import {createElement, Phrase} from 'lacona-phrase'
+  /** @jsx createElement */
+import {createElement} from 'elliptical'
 
-export class String extends Phrase {
-  static defaultProps = {
-    argument: 'string',
-    trimmed: true
-  }
-
-  validate (result) {
-    if (this.props.trimmed && (/^\s/.test(result) || /\s$/.test(result))) {
-      return false
-    }
-    return true
-  }
-
-  describe () {
-    return (
-      <label text={this.props.argument}>
-        <freetext consumeAll={this.props.consumeAll} splitOn={this.props.splitOn} limit={this.props.limit} />
-      </label>
-    )
-  }
+const defaultProps = {
+  argument: 'string',
+  limit: 1,
+  trimmed: true
 }
+
+function describe ({props}) {
+  return (
+    <label text={props.argument}>
+      <freetext
+        greedy={props.greedy}
+        consumeAll={props.consumeAll}
+        splitOn={props.splitOn}
+        limit={props.limit} />
+    </label>
+  )
+}
+
+function filterResult (result, {props}) {
+  if (props.trimmed && (/^\s/.test(result) || /\s$/.test(result))) {
+    return false
+  }
+  return true
+}
+
+export default {defaultProps, describe, filterResult}

@@ -2,55 +2,51 @@
 /* eslint-env mocha */
 
 import _ from 'lodash'
-import { createElement, Phrase } from 'lacona-phrase'
-import { String } from '..'
+import { createElement, compile } from 'elliptical'
+import StringPhrase from '../src/index'
 import { expect } from 'chai'
-import { Parser } from 'lacona'
 
 function text(input) {
   return _.map(input.words, 'text').join('')
 }
 
 describe('String', () => {
-  let parser
-
-  beforeEach(() => {
-    parser = new Parser()
-  })
-
   describe('default', () => {
+    let parse
+
     beforeEach(() => {
-      parser.grammar = <String />
+      parse = compile(<StringPhrase />)
     })
 
     it('handles valid strings', () => {
-      const data1 = parser.parseArray('test')
+      const data1 = parse('test')
       expect(data1).to.have.length(1)
       expect(text(data1[0])).to.equal('test')
       expect(data1[0].result).to.equal('test')
     })
 
     it('rejects strings that begin or end with whitespace', () => {
-      const data1 = parser.parseArray('test ')
+      const data1 = parse('test ')
       expect(data1).to.have.length(0)
 
-      const data2 = parser.parseArray(' test')
+      const data2 = parse(' test')
       expect(data2).to.have.length(0)
     })
   })
 
   describe('trigger={false}', () => {
+    let parse
     beforeEach(() => {
-      parser.grammar = <String trimmed={false} />
+      parse = compile(<StringPhrase trimmed={false} />)
     })
 
     it('allows rejects strings that begin or end with whitespace', () => {
-      const data1 = parser.parseArray('test ')
+      const data1 = parse('test ')
       expect(data1).to.have.length(1)
       expect(text(data1[0])).to.equal('test ')
       expect(data1[0].result).to.equal('test ')
 
-      const data2 = parser.parseArray(' test')
+      const data2 = parse(' test')
       expect(data2).to.have.length(1)
       expect(text(data2[0])).to.equal(' test')
       expect(data2[0].result).to.equal(' test')
