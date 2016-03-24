@@ -14,16 +14,23 @@ function describe ({props}) {
         greedy={props.greedy}
         consumeAll={props.consumeAll}
         splitOn={props.splitOn}
+        trimmed={props.trimmed}
+        filter={(input) => filter(input, props)}
         limit={props.limit} />
     </label>
   )
 }
 
-function filterResult (result, {props}) {
-  if (props.trimmed && (/^\s/.test(result) || /\s$/.test(result))) {
+function filter (input, props) {
+  if (props.trimmed && (/^\s/.test(input) || /\s$/.test(input))) {
     return false
   }
+
+  if (props.filter) {
+    return props.filter(input)
+  }
+
   return true
 }
 
-export default {defaultProps, describe, filterResult}
+export const String = {defaultProps, describe}
