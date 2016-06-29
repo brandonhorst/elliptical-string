@@ -6,7 +6,7 @@
     "url": "https://github.com/laconalabs/elliptical-string/issues"
   },
   "dependencies": {
-    "elliptical": "^1.0.0-rc8"
+    "elliptical": "^1.0.0-rc9"
   },
   "description": "Lacona Phrase for strings - a loose wrapper for <freetext />",
   "devDependencies": {
