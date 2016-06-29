@@ -9,7 +9,7 @@ const defaultProps = {
 
 function describe ({props}) {
   return (
-    <label text={props.argument}>
+    <placeholder text={props.argument}>
       <freetext
         greedy={props.greedy}
         consumeAll={props.consumeAll}
@@ -17,7 +17,7 @@ function describe ({props}) {
         trimmed={props.trimmed}
         filter={(input) => filter(input, props)}
         limit={props.limit} />
-    </label>
+    </placeholder>
   )
 }
 
