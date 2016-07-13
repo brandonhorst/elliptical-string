@@ -2,14 +2,16 @@
 import {createElement} from 'elliptical'
 
 const defaultProps = {
-  argument: 'string',
+  label: 'string',
   limit: 1,
   trimmed: true
 }
 
 function describe ({props}) {
   return (
-    <placeholder text={props.argument}>
+    <placeholder
+      label={props.label}
+      arguments={props.phraseArguments || (props.phraseArguments ? [props.phraseArgument] : [props.label])}>
       <freetext
         greedy={props.greedy}
         consumeAll={props.consumeAll}
