@@ -35,4 +35,4 @@ function filter (input, props) {
   return true
 }
 
-export const String = {defaultProps, describe}
+export const String = {defaultProps, describe, id: 'elliptical-string:String'}
